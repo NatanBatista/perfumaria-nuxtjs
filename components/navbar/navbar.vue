@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="my-6">
         <nav class="flex justify-between items-center">
@@ -8,7 +9,7 @@
 
             <!-- Menu user -->
             <div class="flex items-center gap-10">
-              <ColorMode></ColorMode>
+              <NavbarColorMode></NavbarColorMode>
               <UDropdown :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }" :popper="{ placement: 'bottom-start' }">
     <UIcon name="i-heroicons-user-circle" class="w-8 h-8"/>
 
@@ -51,29 +52,31 @@
 </template>
 
 <script setup lang="ts">
+import {ref} from "vue"
 const items = [
-  [{
-    label: 'natan@example.com',
-    slot: 'account',
-    disabled: true
-  }], [{
-    label: 'Configurações',
-    icon: 'i-heroicons-cog-8-tooth'
-  }], 
-//   [{
-//     label: 'Documentation',
-//     icon: 'i-heroicons-book-open'
-//   }, {
-//     label: 'Changelog',
-//     icon: 'i-heroicons-megaphone'
-//   }, {
-//     label: 'Status',
-//     icon: 'i-heroicons-signal'
-//   }], 
-  [{
-    label: 'Sair',
-    icon: 'i-heroicons-arrow-left-on-rectangle'
-  }]
+	[{
+		label: "natan@example.com",
+		slot: "account",
+		disabled: true,
+	}],
+	[{
+		label: "Configurações",
+		icon: "i-heroicons-cog-8-tooth",
+	}],
+	//   [{
+	//     label: 'Documentation',
+	//     icon: 'i-heroicons-book-open'
+	//   }, {
+	//     label: 'Changelog',
+	//     icon: 'i-heroicons-megaphone'
+	//   }, {
+	//     label: 'Status',
+	//     icon: 'i-heroicons-signal'
+	//   }],
+	[{
+		label: "Sair",
+		icon: "i-heroicons-arrow-left-on-rectangle",
+	}],
 ]
 
 const slideover = ref(false)

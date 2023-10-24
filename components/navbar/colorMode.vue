@@ -1,13 +1,16 @@
 <script setup>
+import { computed } from "vue"
+import { useColorMode } from "#ui-colors/imports"
+
 const colorMode = useColorMode()
 
 const isDark = computed({
-  get () {
-    return colorMode.value === 'dark'
-  },
-  set () {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-  }
+	get () {
+		return colorMode.value === "dark"
+	},
+	set () {
+		colorMode.preference = colorMode.value === "dark" ? "light" : "dark"
+	}
 })
 </script>
 
@@ -22,7 +25,7 @@ const isDark = computed({
     />
 
     <template #fallback>
-      <div class="w-8 h-8" />
+      <div class="w-8 h-8"></div>
     </template>
   </ClientOnly>
 </template>
