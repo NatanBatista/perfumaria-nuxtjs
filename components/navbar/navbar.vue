@@ -4,7 +4,7 @@
         <nav class="flex justify-between items-center">
             <div class="flex gap-10 items-center">
                 <UIcon @click="slideover = true" name="i-heroicons-bars-3" class="w-10 h-10" />
-                <span class=" font-bold text-2xl"> Perfumaria </span>
+                <span class=" font-bold text-2xl tracking-tight"> Perfumaria </span>
             </div>
 
             <!-- Menu user -->
@@ -37,7 +37,10 @@
     <USlideover v-model="slideover" side="left">
       <UCard class="flex flex-col flex-1" :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
         <template #header>
-         PERFUMARIA
+          <div class="flex justify-between items-center">
+            <span> PERFUMARIA </span>
+            <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="slideover = false" />
+          </div>
         </template>
           <ul class="flex flex-col gap-3 ml-5">
             <NuxtLink to="/oi" class="hover:text-gray-500"> Perfumes </NuxtLink>
