@@ -1,20 +1,31 @@
 <template>
     <UContainer>
-        <h2 class="font-mono font-bold text-2xl leading-10 ml-10 my-10">
-            {{titulo}}
-        </h2>
-        <div class="flex justify-center items-center">
-            <div class="flex flex-wrap gap-3">
+        <div class="flex justify-between font-mono font-bold text-2xl leading-10">
+            <span>{{ titulo }}</span>
+            <NuxtLink v-if="feedType == 1" to="/noticias" class="ml-10">
+                <UIcon class="" name="i-heroicons-chevron-double-right"> </UIcon>
+            </NuxtLink>
+            <NuxtLink v-if="feedType == 2" to="/perfumes" class="ml-10">
+                <UIcon class="" name="i-heroicons-chevron-double-right"> </UIcon>
+            </NuxtLink>
+            <NuxtLink v-if="feedType == 3" to="/notas" class="ml-10">
+                <UIcon class="" name="i-heroicons-chevron-double-right"> </UIcon>
+            </NuxtLink>
+        </div>
+        <div class="bg-[#333] w-32 h-1"></div>
+        <div>
+            <div class="flex flex-wrap justify-center gap-6 my-10">
                 <div v-for="item in 3" :key="item"
                     class="border border-b-2 h-[470px] w-[350px] rounded-2xl overflow-clip relative">
-                    <div class="bg-gray-50 dark:bg-neutral-900 h-[480px] w-[350px] rounded-t-2xl transform transition
-                translate-y-2/3 hover:translate-y-1/3"> <!--- DIV1-->
-                        <div class="flex flex-col items-center"> <!-- DIV2-->
+                    <div class="bg-gray-100 dark:bg-neutral-900 h-[480px] w-[350px] rounded-t-2xl transform transition
+                translate-y-2/3 duration-700 ease-in-out hover:translate-y-1/3">
+                        <div class="flex flex-col items-center text-black">
                             <span
-                                class="flex justify-center items-center h-16 w-16 rounded-full bg-blue-300 absolute -top-5">
+                                class="flex justify-center items-center h-16 w-16 rounded-full animate-bounce bg-gray-100 dark:bg-neutral-900 absolute -top-5">
                                 <UIcon name="i-heroicons-arrow-up" class="h-6 w-6" />
                             </span>
                         </div>
+                        <HomeFeedNotice v-if="feedType == 1"></HomeFeedNotice>
                     </div>
                 </div>
             </div>
@@ -23,10 +34,15 @@
 </template>
 
 <script>
+
 export default {
 	props: {
-		titulo: String
-	}
+		titulo: String,
+		feedType: Number
+	},
 }
+</script>
+
+<script setup>
 </script>
   
