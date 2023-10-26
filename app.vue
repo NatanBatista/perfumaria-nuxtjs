@@ -14,6 +14,7 @@
   </UContainer> -->
   <Navbar></Navbar>
   <NuxtPage />
+  <Footer></Footer>
     </main>
   </body>
 </template>
