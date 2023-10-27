@@ -17,15 +17,16 @@
             <div class="flex flex-wrap justify-center gap-6 my-10">
                 <div v-for="item in 3" :key="item"
                     class="border border-b-2 h-[470px] w-[350px] rounded-2xl overflow-clip relative">
-                    <div class="bg-gray-100 dark:bg-neutral-900 h-[480px] w-[350px] rounded-t-2xl transform transition
+                    <div class="bg-gray-300 dark:bg-neutral-700 h-[480px] w-[350px] rounded-t-2xl transform transition
                 translate-y-2/3 duration-700 ease-in-out hover:translate-y-1/3">
                         <div class="flex flex-col items-center text-black">
                             <span
-                                class="flex justify-center items-center h-16 w-16 rounded-full animate-bounce bg-gray-100 dark:bg-neutral-900 absolute -top-5">
+                                class="flex justify-center items-center h-16 w-16 rounded-full animate-bounce bg-gray-100 dark:bg-neutral-800 absolute -top-5">
                                 <UIcon name="i-heroicons-arrow-up" class="h-6 w-6" />
                             </span>
                         </div>
-                        <HomeFeedNotice v-if="feedType == 1"></HomeFeedNotice>
+                        <HomeFeedNotice v-if="feedType == 1" :isLoading="true"></HomeFeedNotice>
+                        <HomeFeedCard v-if="feedType == 2 || 3" :isLoading="true"></HomeFeedCard>
                     </div>
                 </div>
             </div>
@@ -38,7 +39,8 @@
 export default {
 	props: {
 		titulo: String,
-		feedType: Number
+		feedType: Number,
+		isLoading: Boolean
 	},
 }
 </script>
