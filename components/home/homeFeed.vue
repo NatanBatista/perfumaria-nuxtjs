@@ -16,8 +16,8 @@
         <div>
             <div class="flex flex-wrap justify-center gap-6 my-10">
                 <div v-for="item in 3" :key="item"
-                    class="border border-b-2 h-[470px] w-[350px] rounded-2xl overflow-clip relative">
-                    <div class="bg-gray-300 dark:bg-neutral-700 h-[480px] w-[350px] rounded-t-2xl transform transition
+                    class="border border-b-2 h-[350px] w-[330px] rounded-2xl overflow-clip relative">
+                    <div class="absolute -top-0 bg-gray-300 dark:bg-neutral-700 h-full w-full rounded-t-2xl transform transition
                 translate-y-2/3 duration-700 ease-in-out hover:translate-y-1/3">
                         <div class="flex flex-col items-center text-black">
                             <span
