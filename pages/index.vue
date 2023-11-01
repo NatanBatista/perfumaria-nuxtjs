@@ -21,14 +21,8 @@ const responseData = ref([]) // Defina uma variável para armazenar os dados da 
 const isLoadingNotice = ref(true)
 console.log(responseData)
 
-
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 // Esta função fará a requisição GET para o endpoint /articles no servidor local
 const fetchData = async () => {
-	await sleep(5000)
 	try {
 		const response = await axios.get("http://localhost:3001/articles")
 		console.log("Dados recebidos:", response.data)
