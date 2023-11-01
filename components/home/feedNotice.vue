@@ -4,7 +4,7 @@
         <UAvatar class="transition duration-700 ease-in-out hover:scale-150" size="md" alt="Avatar" icon="i-heroicons-photo" />
         <h2> {{ author }} </h2>
       </div>
-      <span>
+      <span class="pl-2 font-bold">
         {{ title }}
       </span>
       <br>
