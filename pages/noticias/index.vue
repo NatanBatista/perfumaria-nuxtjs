@@ -5,8 +5,9 @@
             <NoticeFeed></NoticeFeed>
             <NoticeFeed></NoticeFeed>
         </div>
+        <NoticeCardSkeleton></NoticeCardSkeleton>
         <div class="flex flex-col items-center gap-2">
-            <NoticeCard v-for="items in 5" :key="items" :id="items"></NoticeCard>
+            <NoticeCard v-for="items in 2" :key="items" :id="items"></NoticeCard>
 
             <UPagination v-model="page" :page-count="5" :total="items.length" />
         </div>
