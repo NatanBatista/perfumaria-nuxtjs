@@ -39,7 +39,7 @@
     <div class="bg-[#333] h-1"></div>
   </div>
 
-  <USlideover v-model="slideover" side="left">
+  <USlideover v-model="slideover" side="left" :ui=" { width: 'max-w-sm'}">
     <UCard class="flex flex-col flex-1"
       :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
       <template #header>
