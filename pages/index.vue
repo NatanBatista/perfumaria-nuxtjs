@@ -17,15 +17,16 @@ export default {
 import axios from "axios"
 import {ref} from "vue"
 
+
+// eslint-disable-next-line no-undef
+const config = useRuntimeConfig()
 const responseData = ref([]) // Defina uma variável para armazenar os dados da resposta
 const isLoadingNotice = ref(true)
-console.log(responseData)
 
 // Esta função fará a requisição GET para o endpoint /articles no servidor local
 const fetchData = async () => {
 	try {
-		const response = await axios.get("http://localhost:3001/articles")
-		console.log("Dados recebidos:", response.data)
+		const response = await axios.get(config.public.appUrl + "/articles")
 		responseData.value = response.data // Atribua os dados à variável responseData
 		isLoadingNotice.value = false
 	} catch (error) {
