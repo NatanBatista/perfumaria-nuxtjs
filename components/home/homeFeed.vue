@@ -17,7 +17,7 @@
             <div v-if="!isLoading" class="flex flex-wrap justify-center gap-6 my-10">
                 <div v-for="item in data" :key="item"
                     class="border border-b-2 h-[350px] w-[330px] rounded-2xl overflow-clip relative">
-                    <img :src="'http://localhost:3001' + item.image.url" :alt="item.title">
+                    <img :src="$config.public.appUrl + item.image.url" :alt="item.title">
                     <div class="absolute -top-0 bg-gray-300 dark:bg-neutral-700 h-full w-full rounded-t-2xl transform transition
                 translate-y-2/3 duration-700 ease-in-out hover:translate-y-1/3">
                         <div class="flex flex-col items-center text-black">
