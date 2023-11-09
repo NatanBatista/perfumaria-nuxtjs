@@ -26,7 +26,7 @@ const isLoadingNotice = ref(true)
 // Esta função fará a requisição GET para o endpoint /articles no servidor local
 const fetchData = async () => {
 	try {
-		const response = await axios.get(config.public.appUrl + "/articles")
+		const response = await axios.get(config.public.appUrl + "/articles3")
 		responseData.value = response.data // Atribua os dados à variável responseData
 		isLoadingNotice.value = false
 	} catch (error) {
