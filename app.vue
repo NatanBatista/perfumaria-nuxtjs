@@ -1,6 +1,5 @@
 <template>
-  <body class="container mx-auto">
-    <main>
+  <UCard class="container mx-auto">
       <!-- <UContainer>
     <UCard class="mt-10">
       <template #header>
@@ -12,9 +11,14 @@
       <UButton icon="i-heroicons-book-open" to="https://ui.nuxt.com" target="_blank">Open Nuxt UI Documentation</UButton>
     </UCard>
   </UContainer> -->
-  <Navbar></Navbar>
-  <NuxtPage />
-  <Footer></Footer>
-    </main>
-  </body>
+      <template #header>
+      <Navbar></Navbar>
+
+      </template>
+      <NuxtPage />
+
+      <template #footer>
+        <Footer></Footer>
+      </template>
+  </UCard>
 </template>
