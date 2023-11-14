@@ -3,7 +3,7 @@
       <div class="flex gap-6 justify-center mt-2 mb-4">
         <h2>Natan Batista</h2>
       </div>
-      <span>
+      <span class="line-clamp-3">
         "At vero eos et accusamus et iusto odio dignissimos
         ducimus qui blanditiis praesentium voluptatum deleniti
         atque corrupti quos dolores et quas molestias excepturi

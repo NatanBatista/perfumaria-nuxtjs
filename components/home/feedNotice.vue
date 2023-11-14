@@ -8,7 +8,7 @@
         {{ title }}
       </span>
       <br>
-      <span>
+      <span class="line-clamp-3">
         {{ description }}
       </span>
     </div>
