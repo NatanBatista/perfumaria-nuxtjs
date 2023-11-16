@@ -13,7 +13,7 @@
       <!-- Menu user -->
       <div class="flex items-center gap-10">
         <NavbarColorMode></NavbarColorMode>
-        <UDropdown :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }"
+        <UDropdown v-if="authenticated" :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }"
           :popper="{ placement: 'bottom-start' }">
           <UIcon name="i-heroicons-user-circle" class="w-8 h-8" />
 
@@ -34,12 +34,16 @@
             <UIcon :name="item.icon" class="flex-shrink-0 h-4 w-4 text-gray-400 dark:text-gray-500 ms-auto" />
           </template>
         </UDropdown>
+        <div v-else class="flex gap-2">
+          <UButton color="white" @click="signInModal = true"> Entrar </UButton>
+          <UButton color="white"> Cadastrar-se </UButton>
+        </div>
       </div>
     </nav>
     <div class="bg-[#333] h-1"></div>
   </div>
 
-  <USlideover v-model="slideover" side="left" :ui=" { width: 'max-w-sm'}">
+  <USlideover v-model="slideover" side="left" :ui="{ width: 'max-w-sm' }">
     <UCard class="flex flex-col flex-1"
       :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
       <template #header>
@@ -59,10 +63,17 @@
       </template>
     </UCard>
   </USlideover>
+
+  <UModal v-model="signInModal" :overlay="false" :transition="false">
+    <NavbarSignin />
+  </UModal>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue"
+
+const authenticated = ref(false)
+const signInModal = ref(false)
 const items = [
 	[{
 		label: "natan@example.com",
