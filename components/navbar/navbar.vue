@@ -36,7 +36,7 @@
         </UDropdown>
         <div v-else class="flex gap-2">
           <UButton color="white" @click="signInModal = true"> Entrar </UButton>
-          <UButton color="white"> Cadastrar-se </UButton>
+          <UButton color="white" @click="signUpModal = true"> Cadastrar-se </UButton>
         </div>
       </div>
     </nav>
@@ -67,6 +67,10 @@
   <UModal v-model="signInModal" :overlay="false" :transition="false">
     <NavbarSignin />
   </UModal>
+
+  <UModal v-model="signUpModal" :overlay="false" :transition="false">
+    <NavbarSignup />
+  </UModal>
 </template>
 
 <script setup lang="ts">
@@ -74,6 +78,7 @@ import { ref } from "vue"
 
 const authenticated = ref(false)
 const signInModal = ref(false)
+const signUpModal = ref(false)
 const items = [
 	[{
 		label: "natan@example.com",
