@@ -34,10 +34,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {ref} from "vue"
+import {ref, reactive } from "vue"
 import type { FormSubmitEvent } from "#ui/types"
 import { object, string, type InferType } from "yup"
-import { reactive } from "vue"
 import axios from "axios"
 
 // eslint-disable-next-line no-undef
@@ -50,12 +49,32 @@ const schema = object({
 		.required("Obrigatorio")
 })
 
+// eslint-disable-next-line no-undef
+// const accessToken = useCookie("accessToken")
+const cookies = ref({
+	"access-token": "",
+	"client": "",
+	"uid": ""
+})
+
 type Schema = InferType<typeof schema>
 
 const state = reactive({
 	email: undefined,
 	password: undefined
 })
+
+async function handleCookie () {
+	// eslint-disable-next-line no-undef
+	await $fetch("/api/tokenAuth", {
+		method: "POST",
+		body: {
+			accessToken: cookies.value["access-token"],
+			client: cookies.value["client"],
+			uid: cookies.value["uid"]
+		}
+	})
+}
 
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -66,9 +85,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 			email: event.data.email,
 			password: event.data.password
 		})
-		document.cookie = `uid=${response.headers["uid"]} path=/`
-		document.cookie = `access-token=${response.headers["access-token"]}`
-		document.cookie = `client=${response.headers["client"]} path=/`
+		cookies.value["access-token"] = response.headers["access-token"]
+		cookies.value["client"] = response.headers["client"]
+		cookies.value["uid"] = response.headers["uid"]
+		handleCookie()
+		console.log(response.headers)
 		
 	} catch (error) {
 		loading.value = false
